@@ -92,7 +92,7 @@ class Product extends Component {
             </div>
             <Collapse isOpened={showShipping}>
               <div className="pb-4 font-color-medium">
-                Arrives in 5 to 7 days, returns accepted within 30
+                Arrives in 5 to 7 days, returns accepted within 7
                 days. For more information, click here.
               </div>
             </Collapse>
