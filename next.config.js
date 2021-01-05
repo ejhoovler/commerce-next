@@ -8,5 +8,8 @@ module.exports = withSass({
     }
     return config
   },
+  env: {
+    'NEXT_CHEC_PUBLIC_KEY': process.env.NEXT_CHEC_PUBLIC_KEY
+  }
 })
 
