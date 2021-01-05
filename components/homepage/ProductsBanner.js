@@ -12,13 +12,13 @@ class ProductsBanner extends Component {
       <div className="custom-container py-5 my-5">
         <div className="d-flex flex-column align-items-center mb-5 pb-4">
           <p className="font-color-medium mb-4">
-            Introducing Our Latest Products
+            Introducing Our Best Products
           </p>
           <p
             className="text-center font-size-display1 mb-3 font-weight-medium"
             style={{ maxWidth: '32rem' }}
           >
-            Limited reservations on upcoming products and restocks.
+            Limited quatities on upcoming products and restocks.
           </p>
           <Link href="/collection">
             <a className="d-flex py-3 align-items-center font-color-black borderbottom border-color-black">

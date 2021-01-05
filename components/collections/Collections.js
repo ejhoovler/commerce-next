@@ -57,10 +57,9 @@ class Collections extends Component {
                   <div className="mb-5">
                     <div className="d-flex">
                       <p className="mb-2 position-relative cursor-pointer">
-                        Products
                         <span
                           className="position-absolute font-size-tiny text-right"
-                          style={{ right: '-12px', top: '-4px' }}
+                          style={{ right: '-6px', top: '-4px' }}
                         >
                           {category.count}
                         </span>
