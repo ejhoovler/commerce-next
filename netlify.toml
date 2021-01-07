@@ -4,6 +4,7 @@
 
 [[plugins]]
   package = "netlify-plugin-onboarding"
+  package = "@netlify/plugin-nextjs"
 
 [template.environment]
   NEXT_PUBLIC_CHEC_PUBLIC_KEY = "pk_21403368a51635b2d116007194fcfa6b5c287ad6f1362"
