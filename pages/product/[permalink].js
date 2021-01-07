@@ -255,12 +255,54 @@ class Product extends Component {
               </Collapse>
 
               <div className="h-1 border-bottom border-color-black">
-                
+                <div onClick={this.toggleDetails} className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium">
+                  Details 
+                  <img src="/images/collection/uspt.jpg" />
+                </div>
+                <Collapse isOpened={showDetails}>
+                  <div className="pb-4 font-color-medium" dangerouslySetInnerHTML={{
+                    __html: detailView
+                  }}
+                  />
+                </Collapse>
+                <div className="h-1 borderbottom border-color-black" />
               </div>
             </div>
           </div>
+
+          <ClientReview />
+          <SuggestedProducts />
+          <SocialMedia />
+          <Footer />
         </div>
       </Root>
-    )
+    );
   }
 }
+
+export async function getStaticPaths() {
+  const { data: products } = await commerce.products.list();
+
+  const paths = products.map(product => ({
+    params: {
+      permalink: product.permalink,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export async function getStaticPaths({ params: { permalink } }) {
+  const product = await commerce.products.retrieve(permalink, { type: 'permalink' });
+
+  return {
+    props: {
+      product,
+    },
+  };
+}
+
+export default connect(state => state)(Product);
