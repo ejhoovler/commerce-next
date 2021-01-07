@@ -163,3 +163,104 @@ export async function getStaticProps({ params: { permalink } }) {
 }
 
 export default connect(state => state)(Product);
+import React, { Component } from 'react';
+import commerce from '../../lib/commerce';
+import { Collapse } from 'react-collapse';
+import { connect } from 'react-redux';
+import Head from 'next/head';
+import Root from '../../components/common/Root';
+import CarouselImages from '../../components/productAssets/CarouselImages';
+import ProductDetail from '../../components/productAssets/ProductDetail';
+import ClientReview from '../../components/productAssets/ClientReview';
+import Footer from '../../components/common/Footer';
+import CategoryList from '../../components/products/CategoryList';
+import reduceProductImages from '../../lib/reduceProductImages';
+
+const detailView = `<p>
+  Gel, Stain & Glaze all in One!
+</p>`;
+
+class Product extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showShipping: false,
+      showDetails: false,
+    };
+
+    this.toggleShipping = this.toggleShipping.bind(this);
+    this.toggleDetails = this.toggleDetails.bind(this);
+  }
+
+  toggleShipping() {
+    const { showShipping } = this.state;
+    this.setState({ showShipping: !showShipping });
+  }
+
+  toggleDetails() {
+    const { showDetails } = this.state;
+    this.setState({ showDetails: !showDetails });
+  }
+
+  render() {
+    const { showShipping, showDetails } = this.state;
+    const { product } = this.props;
+
+    const images = reduceProductImages(product);
+
+    return (
+      <Root>
+        <Head>
+          <title>{ product.name } | LeeLeeS UniCornS</title>
+        </Head>
+
+        <div className="py-5 my-5">
+          <div className="main-product-content">
+            {/* Sidebar */}
+            <div className="product-sidebar">
+              <CategoryList
+                className="product-left-aside__category-list"
+                current={ product.categories[0] && product.categories[0].id }
+              />
+              <CarouselImages images={images} />
+            </div>
+
+            <div className="product-images">
+              <div className="flex-grow-1">
+                {Array.isArray(images) ? (images.map((image, i) => (
+                  <img 
+                    key={i}
+                    src={image}
+                    className="w-100 mb-3 carousel-main-images"
+                  />
+                ))) : (
+                  ' '
+                )}
+              </div>
+            </div>
+
+            {/* Right section - product details */}
+            <div className="product-detail">
+              <ProductDetail product={product} />
+
+              <div onClick={this.toggleShipping} className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium">
+                Shipping & Returns 
+              </div>
+              <Collapse isOpened={showShipping}>
+                <div className="pb-4 font-color-info">
+                  Arrives in 5 to 7 days, returns accepted within 30
+                days. For more information, click here.
+                </div>
+              </Collapse>
+
+              <div className="h-1 border-bottom border-color-black">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </Root>
+    )
+  }
+}

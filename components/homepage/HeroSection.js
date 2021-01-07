@@ -18,9 +18,7 @@ const params = {
   }
 };
 const images = [
-  '/images/collection/14.jpg',
   '/images/collection/metals.jpg',
-  '/images/collection/sprk.jpg',
   '/images/collection/uspt.jpg',
 ];
 

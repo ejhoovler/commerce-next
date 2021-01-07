@@ -19,9 +19,8 @@ class CategoryBanner extends Component {
             {categories.map((item, index) => (
               <div
                 key={`category-item-${index}`}
-                className="col-12 col-md-4 collection-item mb-5"
+                className="col-12 col-lg-3 collection-item mb-5"
               >
-                
               </div>
             ))}
           </div>
