@@ -29,3 +29,113 @@
 @import "components/footer-follow";
 @import "components/loader";
 @import "components/breadcrumbs";
+
+html,
+body,
+#root,
+canvas {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2D3047;
+    background-image: linear-gradient(147deg, #2D3047 0%, #eae6e5 74%);
+    background-attachment: fixed;
+    overflow: scroll;
+}
+
+.infoCard {
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.5s;
+    will-change: transform;
+}
+
+.card {
+    margin: 30px;
+    padding: 15px;
+    max-width: 500px;
+    max-height: 1000px;
+    z-index: 10;
+    background-color: #413D44;
+    overflow: hidden;
+}
+
+.form-control::-webkit-input-placeholder {
+    opacity: .4;
+}
+
+.form-label {
+    color: #eae6e5;
+}
+
+.button {
+    float: right;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    z-index: 100;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.myCard {
+    border-radius: 15px;
+}
+
+.cardAnimation {
+    max-width: 500px;
+    max-height: 300px;
+    z-index: 10;
+    background: #413D44;
+    box-shadow: inset -20px 20px 60px #37343a,
+        inset 20px -20px 60px #4b464e;
+}
+
+#submit {
+    margin: 10px 15px 15px 15px;
+    padding: 15px;
+    z-index: 10;
+    font-size: 18px;
+}
+
+p {
+    color: white;
+    font-size: 15px;
+}
+
+h4 {
+    color: white;
+    font-size: 18px;
+    float: right;
+}
+
+@media only screen and (min-width: 1000px) {
+    #cart {
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    h4 {
+        text-align: center;
+    }
+}
+
+#submissionSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
