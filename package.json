@@ -41,7 +41,7 @@
     "redux-thunk": "^2.3.0",
     "serialize-javascript": "^5.0.1",
     "swiper": "^6.4.5",
-    "three": "^0.126.1"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@chec/seeder": "^1.1.0",
